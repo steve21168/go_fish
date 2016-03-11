@@ -1,7 +1,6 @@
 require_relative 'card'
 
 class Deck
-
   def self.all_cards
     full_deck = []
 
@@ -20,7 +19,6 @@ class Deck
     @cards = Deck.all_cards
   end
 
-  ###Go_fish means to take a card from the deck
   def take
     raise "not enough cards" if cards.count == 0
     @cards.shift
@@ -31,8 +29,8 @@ class Deck
   end
 
   def deal_hand
-    cards_arr = []
-    5.times { cards_arr << self.take }
-    cards_arr
+    hand = []
+    5.times { hand << self.take }
+    hand
   end
 end

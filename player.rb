@@ -1,8 +1,5 @@
+require 'byebug'
 class Player
-
-###Book count?
-###
-
   attr_accessor :book_count
   attr_reader :hand, :name
 
@@ -12,8 +9,11 @@ class Player
     @book_count = 0
   end
 
-  def display_hand
-    hand.cards.map(&:to_s)
+  def go_fish(deck)
+    @hand.cards << deck.take
   end
 
+  def display_hand
+    hand.cards.map(&:to_s).join(", ")
+  end
 end
